@@ -2,7 +2,7 @@
 /* Refinamento visual: fotografia luminosa, cor viva e tipografia com presença */
 .brand-logo{display:block;width:164px;height:54px;object-fit:contain;object-position:left center;filter:drop-shadow(0 0 8px rgba(241,190,78,.28))}
 .footer-logo{width:148px;height:48px}
-.hero-backdrop{background-image:none!important;opacity:1;filter:brightness(1.22) saturate(1.18) contrast(1.06)}
+.hero-backdrop{opacity:1;filter:brightness(1.22) saturate(1.18) contrast(1.06)}
 .hero-shade{background:linear-gradient(90deg,rgba(4,7,12,.88) 0%,rgba(4,7,12,.58) 40%,rgba(4,7,12,.08) 100%),linear-gradient(0deg,rgba(8,11,18,.74),transparent 36%)}
 h1,h2,h3{ text-shadow:0 2px 18px rgba(0,0,0,.38)}
 h1 span,h2 span{color:#ffdc83;text-shadow:0 0 10px rgba(255,202,91,.36),0 0 24px rgba(255,202,91,.2)}
@@ -48,4 +48,22 @@ h1 span,h2 span{color:#ffdc83;text-shadow:0 0 10px rgba(255,202,91,.36),0 0 24px
  .hero-copy{font-size:14px;line-height:1.6}
  .hero-actions .button{padding:13px 16px}
  .hero-caption{font-size:7px;letter-spacing:1.4px}
+}
+
+/* Banner de marca nas áreas principais */
+.hero-backdrop{background-image:var(--studio-banner,none)!important;background-size:cover!important;background-position:center 45%!important;background-repeat:no-repeat!important;filter:brightness(1.18) saturate(1.22) contrast(1.08)}
+.statement-bg{background-image:var(--studio-banner,none)!important;background-size:cover!important;background-position:center!important;filter:brightness(1.18) saturate(1.2) contrast(1.06)}
+.contact-card{background-image:linear-gradient(135deg,rgba(7,11,18,.86),rgba(7,11,18,.72)),var(--studio-banner,none);background-size:cover;background-position:center;border-color:rgba(255,211,119,.58)}
+.under-link{position:relative;isolation:isolate;padding:13px 17px;margin-top:20px;border:1px solid rgba(232,184,78,.38);background-image:linear-gradient(90deg,rgba(7,11,18,.86),rgba(7,11,18,.62)),var(--studio-banner,none);background-size:cover;background-position:center;border-radius:2px}
+h1 span,h2 span,.service-text h3,.contact-card h3{font-style:italic;font-weight:800}
+.under-link,.contact-kicker,.service-text small{font-style:italic;font-weight:700}
+.intro-copy>p:not(.eyebrow),.contact-copy>p:not(.eyebrow),.contact-card p{color:#d0d5df}
+.photo-panel,.service-card,.gallery-item img{filter:brightness(1.2) saturate(1.22) contrast(1.08)}
+.gallery-item img{transition:transform .6s,filter .4s}
+.gallery-item:hover img{filter:brightness(1.28) saturate(1.25) contrast(1.08)}
+@media(max-width:800px){
+ .hero-backdrop{background-position:60% center!important}
+ .statement-bg{background-position:58% center!important}
+ .contact-card{background-position:60% center}
+ .under-link{max-width:100%;line-height:1.45}
 }
