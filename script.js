@@ -15,7 +15,12 @@ async function loadPortfolio(){
   const entries=Object.values(zip.files).filter(f=>!f.dir&&/\.(jpe?g|png|webp)$/i.test(f.name));
   const assets={};const photos=[];
   for(const file of entries){
-   const blob=await file.async('blob'),url=URL.createObjectURL(blob),base=file.name.split('/').pop().toLowerCase();
+   const base=file.name.split('/').pop().toLowerCase();
+   const ext=base.split('.').pop();
+   const mime=ext==='jpg'||ext==='jpeg'?'image/jpeg':ext==='png'?'image/png':ext==='webp'?'image/webp':'application/octet-stream';
+   const bytes=await file.async('uint8array');
+   const blob=new Blob([bytes],{type:mime});
+   const url=URL.createObjectURL(blob);
    if(base==='logo.png')assets.logo=url;
    else if(base==='banner.png')assets.banner=url;
    else if(!/logo|banner|brand|marca/.test(base))photos.push({name:file.name,url});
