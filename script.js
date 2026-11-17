@@ -1,5 +1,6 @@
 const PHONE='244948138785';
 const zipPath='Foco%20studio.zip';
+let studioBanner='';
 document.querySelectorAll('.whatsapp-link').forEach(a=>a.href='https://wa.me/'+PHONE+'?text='+encodeURIComponent('Olá, FOCUS STUDIO. Gostaria de obter informações sobre retratos, fotografia de beleza e natureza.'));
 document.getElementById('year').textContent=new Date().getFullYear();
 const menu=document.querySelector('.menu-toggle'),nav=document.querySelector('.nav');
@@ -22,19 +23,25 @@ async function loadPortfolio(){
   if(assets.logo)document.querySelectorAll('.brand-logo').forEach(img=>img.src=assets.logo);
   else document.querySelectorAll('.brand-logo').forEach(img=>img.src='logo.png');
   const hero=document.querySelector('.hero-backdrop');
-  if(assets.banner)hero.style.backgroundImage='url("'+assets.banner+'")';
-  else hero.style.backgroundImage='url("banner.png")';
+  if(assets.banner)studioBanner=assets.banner;
+  else studioBanner='banner.png';
+  document.documentElement.style.setProperty('--studio-banner','url("'+studioBanner+'")');
+  hero.style.backgroundImage='url("'+studioBanner+'")';
+  const statement=document.querySelector('.statement-bg');
+  if(statement)statement.style.backgroundImage='url("'+studioBanner+'")';
   if(!photos.length)throw new Error('Não foram encontradas fotografias na pasta ZIP.');
   gallery.innerHTML='';
   photos.forEach((item,i)=>{
    const card=document.createElement('a');card.className='gallery-item';card.href=item.url;card.target='_blank';card.rel='noopener';card.setAttribute('aria-label','Ver fotografia '+(i+1));
    const img=document.createElement('img');img.src=item.url;img.alt='Fotografia artística '+(i+1)+' — FOCUS STUDIO';img.loading=i<4?'eager':'lazy';card.appendChild(img);gallery.appendChild(card);
   });
-  const targets=[...document.querySelectorAll('[data-photo]')];
+  const targets=[...document.querySelectorAll('[data-photo]:not(.statement-bg)')];
   targets.forEach(el=>{const index=Number(el.dataset.photo)%photos.length;el.style.backgroundImage='url("'+photos[index].url+'")';});
  }catch(error){
   document.querySelectorAll('.brand-logo').forEach(img=>img.src='logo.png');
+  document.documentElement.style.setProperty('--studio-banner','url("banner.png")');
   document.querySelector('.hero-backdrop').style.backgroundImage='url("banner.png")';
+  const statement=document.querySelector('.statement-bg');if(statement)statement.style.backgroundImage='url("banner.png")';
   gallery.innerHTML='<p class="gallery-loading">A galeria não ficou disponível neste momento. Contacte a FOCUS STUDIO para conhecer os trabalhos.</p>';
   console.error(error);
  }
