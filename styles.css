@@ -18,3 +18,34 @@ h1 span,h2 span{color:#ffdc83;text-shadow:0 0 10px rgba(255,202,91,.36),0 0 24px
 .contact-card{box-shadow:0 14px 50px rgba(0,0,0,.22),0 0 26px rgba(230,177,66,.07)}
 .text-link,.under-link{ text-shadow:0 0 12px rgba(255,255,255,.12)}
 @media(max-width:800px){.brand-logo{width:145px;height:48px}}
+
+
+/* Ajuste de proporções: marca compacta e banner enquadrado em desktop e telemóvel */
+.site-header{height:76px;padding-left:clamp(18px,5vw,72px);padding-right:clamp(18px,5vw,72px)}
+.site-header .brand{width:50px;height:50px;min-width:50px;border-radius:50%;overflow:hidden;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.96);border:1px solid rgba(232,184,78,.8);box-shadow:0 0 0 4px rgba(232,184,78,.08),0 3px 18px rgba(0,0,0,.3)}
+.site-header .brand-logo{width:100%;height:100%;max-width:100%;max-height:100%;padding:5px;object-fit:contain;object-position:center;filter:none}
+.hero{min-height:650px;height:min(88vh,800px);max-height:800px}
+.hero-backdrop{background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;opacity:.62;filter:brightness(1.08) saturate(1.12) contrast(1.04)}
+.hero-shade{background:linear-gradient(90deg,rgba(4,7,12,.91) 0%,rgba(4,7,12,.68) 42%,rgba(4,7,12,.18) 100%),linear-gradient(0deg,rgba(8,11,18,.72),transparent 38%)}
+.footer-brand .brand-logo{width:132px;height:44px;object-fit:contain}
+@media(max-width:800px){
+ .site-header{height:66px;padding-left:18px;padding-right:18px}
+ .site-header .brand{width:44px;height:44px;min-width:44px}
+ .site-header .brand-logo{width:100%;height:100%;padding:4px}
+ .nav{top:66px}
+ .hero{height:auto;min-height:620px;max-height:none;padding:100px 0 76px}
+ .hero-backdrop{background-size:cover!important;background-position:58% center!important;opacity:.55}
+ .hero-shade{background:linear-gradient(90deg,rgba(4,7,12,.88),rgba(4,7,12,.48)),linear-gradient(0deg,#080b12 0%,rgba(8,11,18,.15) 65%)}
+ .hero-content{margin:20px auto 0;width:86%;max-width:560px}
+ .hero-content h1{font-size:clamp(43px,12vw,60px);line-height:1.08}
+ .hero-copy{max-width:430px;font-size:15px}
+ .hero-caption{bottom:20px;left:7%;right:7%}
+}
+@media(max-width:430px){
+ .hero{min-height:590px;padding-top:88px}
+ .hero-backdrop{background-position:62% center!important}
+ .hero-content{width:88%}
+ .hero-copy{font-size:14px;line-height:1.6}
+ .hero-actions .button{padding:13px 16px}
+ .hero-caption{font-size:7px;letter-spacing:1.4px}
+}
