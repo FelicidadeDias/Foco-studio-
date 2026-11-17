@@ -67,3 +67,33 @@ h1 span,h2 span,.service-text h3,.contact-card h3{font-style:italic;font-weight:
  .contact-card{background-position:60% center}
  .under-link{max-width:100%;line-height:1.45}
 }
+
+
+/* Correcção directa: o banner está na raiz do repositório como banner.png */
+.hero-backdrop{
+ background-image:url('./banner.png')!important;
+ background-size:cover!important;
+ background-position:center 45%!important;
+ background-repeat:no-repeat!important;
+ opacity:.62!important;
+}
+.statement-bg{
+ background-image:url('./banner.png')!important;
+ background-size:cover!important;
+ background-position:center!important;
+ background-repeat:no-repeat!important;
+}
+.contact-card{
+ background-image:linear-gradient(135deg,rgba(7,11,18,.84),rgba(7,11,18,.68)),url('./banner.png')!important;
+ background-size:cover!important;
+ background-position:center!important;
+}
+.under-link{
+ background-image:linear-gradient(90deg,rgba(7,11,18,.84),rgba(7,11,18,.62)),url('./banner.png')!important;
+ background-size:cover!important;
+ background-position:center!important;
+}
+@media(max-width:800px){
+ .hero-backdrop{background-position:60% center!important}
+ .statement-bg,.contact-card,.under-link{background-position:58% center!important}
+}
